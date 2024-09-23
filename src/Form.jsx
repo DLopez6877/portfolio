@@ -15,7 +15,7 @@ const Form = () => {
     const [isFormValid, setIsFormValid] = useState(false);
 
     const validateEmail = (email) => {
-        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if (!emailPattern.test(email)) {
             setEmailError('Please enter a valid email address.');
             return false;
@@ -38,8 +38,8 @@ const Form = () => {
         }
 
         if (name === 'message') {
-            const isValidEmail = validateEmail(emailData.message);
-            setIsFormValid(isValidEmail && emailData.message !== '');
+            const isValidEmail = validateEmail(emailData.email);
+            setIsFormValid(isValidEmail && e.target.value !== '');
         }
     };
 
