@@ -81,6 +81,7 @@ canvas {
   color: white;
   text-align: center;
   margin: 0 auto;
+  max-width: 900px;
 }
 
 #resume-container h2 {
@@ -122,30 +123,6 @@ canvas {
   grid-template-columns: 1fr;
 }
 
-@media (min-width: 1120px) {
-  .grid-wrapper {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    grid-template-areas:
-      "contact-info resume-container"
-      "form-wrapper resume-container";
-  }
-
-  .grid-wrapper .contact-info {
-    grid-area: contact-info;
-    text-align: center;
-  }
-
-  .grid-wrapper .form-wrapper {
-    grid-area: form-wrapper;
-  }
-
-  .grid-wrapper #resume-container {
-    grid-area: resume-container;
-    width: 100%;
-  }
-}
-
 @media (max-width: 500px) {
   :root {
     --container-padding: 0.2rem;
@@ -177,5 +154,37 @@ canvas {
 @media (max-width: 600px) {
   h1 {
     text-align: center;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1400px) {
+  .contact-info {
+    justify-self: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .grid-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "contact-info resume-container"
+      "form-wrapper resume-container";
+    gap: 0rem 2rem;
+  }
+
+  .grid-wrapper .contact-info {
+    grid-area: contact-info;
+    text-align: center;
+  }
+
+  .grid-wrapper .form-wrapper {
+    grid-area: form-wrapper;
+  }
+
+  .grid-wrapper #resume-container {
+    grid-area: resume-container;
+    width: 100%;
+    align-self: center;
   }
 }
