@@ -1,0 +1,56 @@
+.glowing-button {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    margin: 12px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.glowing-button:hover {
+    background-color: transparent;
+}
+
+.glowing-button .glowing-button-border {
+    opacity: 0;
+}
+
+.glowing-button .hover-text {
+    opacity: 1;
+    transform: translateY(40px);
+}
+
+
+.glowing-button .hover-text {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.glowing-button svg {
+    width: 24px;
+    height: 24px;
+    color: white;
+}
+
+.glowing-button-border {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 1;
+    background: conic-gradient(var(--demons-dark-red), rgba(0, 0, 0, 0) 30%);
+    animation: spin 3.4s reverse infinite var(--anim-cb-spin);
+    transition: opacity var(--anim-dur-slow) var(--anim-cb-default);
+}
+
+.glowing-button-border.bottom {
+    animation: spin 4s reverse infinite var(--anim-cb-spin);
+}

@@ -4,7 +4,7 @@ const ThankYou = () => {
     return (
         <div style={{ textAlign: 'center', padding: '20px' }}>
             <h1>Thank You!</h1>
-            <p>Your message has been received. We will get back to you soon.</p>
+            <p>Your message has been received. I will get back to you soon.</p>
             <a href="/">Go back to homepage</a>
         </div>
     );

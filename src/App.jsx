@@ -1,19 +1,34 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useRoutes, useLocation } from 'react-router-dom';
 import ThankYou from './ThankYou';
 import Home from './Home';
 import NotFound from './NotFound';
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/thank-you" element={<ThankYou />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Router>
-  );
-};
+import { AnimatePresence } from 'framer-motion';
 
+function App() {
+  const element = useRoutes([
+    {
+      path: '',
+      element: <Home />
+    },
+    {
+      path: '/thank-you',
+      element: <ThankYou />
+    },
+    {
+      path: '*',
+      element: <NotFound />
+    },
+  ]);
+
+  const location = useLocation();
+
+  if (!element) return null;
+  return (
+    <AnimatePresence>
+      {React.cloneElement(element, { key: location.pathname })}
+    </AnimatePresence>
+  );
+}
 export default App;

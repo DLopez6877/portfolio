@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import GlowingButton from './GlowingButton';
 import { FullscreenIcon, CloseIcon, MagnifyingGlassIcon } from './icons';
+import './ZoomableImage.css';
 
 const ZoomableImage = ({ src, alt, title }) => {
     const [isOverlayOpen, setIsOverlayOpen] = useState(false);

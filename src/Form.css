@@ -1,0 +1,96 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper form {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.form-wrapper .form-field {
+    z-index: 1;
+    margin-bottom: 20px;
+    width: calc(100% - 10px);
+}
+
+.form-wrapper label {
+    margin-bottom: 10px;
+}
+
+.form-wrapper input,
+.form-wrapper textarea {
+    width: 380px;
+    padding: 8px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 2px solid white;
+}
+
+.form-wrapper input.errored {
+    border: 2px solid #BF0202;
+    outline: #BF0202;
+}
+
+.form-wrapper textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+.form-wrapper button {
+    padding: 10px 15px;
+    background-color: #BF0202;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+    margin: 0 auto;
+    border: 1px solid #BF0202;
+}
+
+.form-wrapper button:hover {
+    background-color: #6b0000;
+    border-color: white;
+}
+
+.form-wrapper button:disabled {
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #BF0202;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+@media (max-width: 500px) {
+
+    .form-wrapper input,
+    .form-wrapper textarea {
+        width: 100%;
+    }
+}

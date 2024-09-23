@@ -1,0 +1,95 @@
+.zoomable-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.zoomable-image-container .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.zoomable-image-container .image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper img:hover {
+    transition: transform 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper .icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: normal;
+    transition: background-color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper .icon-button:hover {
+    background-color: white;
+}
+
+.zoomable-image-container .image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #2a2a2a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.zoomable-image-container .image-overlay .overlay-content {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.zoomable-image-container .image-overlay .overlay-title {
+    margin-top: 20px;
+    color: white;
+}
+
+.zoomable-image-container .image-overlay .overlay-image {
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+.zoomable-image-container .image-overlay .overlay-buttons-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.zoomable-image-container .image-overlay .overlay-buttons-container> :nth-child(1) {
+    margin-left: -20px;
+    transform: scaleX(-1);
+}
+
+@media (max-width: 500px) {
+    .zoomable-image-container .image-wrapper .icon-button {
+        display: none;
+    }
+}

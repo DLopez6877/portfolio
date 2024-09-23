@@ -1,0 +1,40 @@
+.bio-container {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.bio-headshot {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 2rem;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.bio-details {
+    flex: 1;
+    mix-blend-mode: difference;
+}
+
+.bio-details p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .bio-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bio-headshot {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+}

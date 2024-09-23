@@ -1,4 +1,5 @@
 import React from 'react';
+import './GlowingButton.css';
 
 const GlowingButton = ({ onClick, hoverText, icon }) => {
     return (
