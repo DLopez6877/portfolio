@@ -1,0 +1,82 @@
+.zoomable-image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.zoomable-image-container .image-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.zoomable-image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform var(--anim-dur-slow) var(--anim-cb-default);
+}
+
+.zoomable-image-container img:hover {
+    transition: transform var(--anim-dur-default) var(--anim-cb-default);
+}
+
+.zoomable-image-container .icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--clr-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.zoomable-image-container .image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.zoomable-image-container .overlay-content {
+    position: relative;
+    text-align: center;
+    color: var(--clr-white);
+}
+
+.zoomable-image-container .overlay-title {
+    margin-top: 20px;
+    color: var(--clr-white);
+}
+
+.zoomable-image-container .overlay-image {
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+.zoomable-image-container .overlay-buttons-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.zoomable-image-container .overlay-buttons-container> :nth-child(1) {
+    margin-left: -20px;
+}

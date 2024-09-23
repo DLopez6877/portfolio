@@ -1,0 +1,346 @@
+:root {
+  --container-padding: 2rem;
+}
+
+.contact-info,
+h2,
+button,
+.email {
+  mix-blend-mode: difference;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+a {
+  cursor: pointer;
+  margin-left: 4px;
+  color: #BF0202;
+  transition: color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+a:hover {
+  color: #6b0000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px 0;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - (var(--container-padding) * 2));
+  padding: var(--container-padding);
+}
+
+.contact-info {
+  z-index: 1;
+}
+
+#resume-container {
+  position: relative;
+  color: white;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#resume-container h2 {
+  text-align: left;
+}
+
+#resume-images {
+  display: flex;
+  gap: 20px;
+  margin: 0 auto;
+}
+
+#download-button {
+  width: max-content;
+  background-color: #BF0202;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 20px auto 0px;
+  transition: background-color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+#download-button:hover {
+  background-color: #6b0000;
+}
+
+.email {
+  color: white;
+  z-index: 1;
+  justify-self: flex-start;
+  font-size: 14px;
+}
+
+/* THREE.JS ANIMATION */
+
+.three-wrapper {
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+canvas {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  /* animation: moveAndScale 8s ease-in-out infinite; */
+}
+
+@keyframes moveAndScale {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  25% {
+    transform: translate(50px, 50px) scale(1.5);
+  }
+
+  50% {
+    transform: translate(-50px, -50px) scale(0.8);
+  }
+
+  75% {
+    transform: translate(100px, 100px) scale(1.2);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+
+/* ZOOMABLE IMAGE */
+
+.zoomable-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.zoomable-image-container .image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.zoomable-image-container .image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper img:hover {
+  transition: transform 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper .icon-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: normal;
+  transition: background-color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.zoomable-image-container .image-wrapper .icon-button:hover {
+  background-color: white;
+}
+
+.zoomable-image-container .image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2a2a2a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.zoomable-image-container .image-overlay .overlay-content {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.zoomable-image-container .image-overlay .overlay-title {
+  margin-top: 20px;
+  color: white;
+}
+
+.zoomable-image-container .image-overlay .overlay-image {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.zoomable-image-container .image-overlay .overlay-buttons-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.zoomable-image-container .image-overlay .overlay-buttons-container> :nth-child(1) {
+  margin-left: -20px;
+  transform: scaleX(-1);
+}
+
+/* GLOWING BUTTON */
+.glowing-button {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  margin: 12px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.glowing-button:hover {
+  background-color: transparent;
+}
+
+.glowing-button .glowing-button-border {
+  opacity: 0;
+}
+
+.glowing-button .hover-text {
+  opacity: 1;
+  transform: translateY(40px);
+}
+
+
+.glowing-button .hover-text {
+  position: absolute;
+  bottom: 10px;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+}
+
+.glowing-button svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.glowing-button-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 1;
+  background: conic-gradient(var(--demons-dark-red), rgba(0, 0, 0, 0) 30%);
+  animation: spin 3.4s reverse infinite var(--anim-cb-spin);
+  transition: opacity var(--anim-dur-slow) var(--anim-cb-default);
+}
+
+.glowing-button-border.bottom {
+  animation: spin 4s reverse infinite var(--anim-cb-spin);
+}
+
+/* FORM */
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-wrapper form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0;
+}
+
+.form-wrapper .form-field {
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.form-wrapper label {
+  margin-bottom: 10px;
+}
+
+.form-wrapper input,
+.form-wrapper textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.form-wrapper button {
+  padding: 10px 15px;
+  background-color: #BF0202;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.64, 0.19, 0.65, 0.89);
+  margin: 0 auto;
+}
+
+.form-wrapper button:hover {
+  background-color: #6b0000;
+}
