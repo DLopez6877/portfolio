@@ -10,13 +10,14 @@ $indicator-size: 40px;
   display: flex;
   flex-direction: column;
   background-color: black;
+  align-self: center;
 
   .row {
     display: flex;
     background-color: white;
     align-items: center;
     flex: 1;
-    min-height: calc(100svh / 7);
+    width: 100%;
     max-width: 100svw;
     overflow: hidden;
     &:not(:last-child) {
@@ -24,13 +25,14 @@ $indicator-size: 40px;
     }
   }
 
-  .bg {
-    position: absolute;
+  .cards {
+    display: flex;
+    flex-shrink: 1;
+  }
+  img {
     height: 100%;
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: 0;
+    width: 80px;
+    margin-right: 5px;
   }
 
   .row-name,
@@ -72,8 +74,14 @@ $indicator-size: 40px;
     height: 4px;
   }
 
-  .count {
+  .count-input {
     font-size: calc($indicator-size * 2);
     margin: 0 calc(calc($indicator-size / 2));
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
   }
 }
