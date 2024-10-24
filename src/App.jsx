@@ -84,11 +84,6 @@ const App = () => {
       {Object.keys(counters).map((name) => (
         <div className="row" key={name}>
           <div className="row-name">{counterDisplayNames[name]}</div>
-          <div className="cards">
-            {counterCardImages[name].map((cardImage, index) => (
-              <img key={index} src={cardImage} alt={`${counterDisplayNames[name]} card art`} />
-            ))}
-          </div>
           <div className="counter">
             <div className="incrementer" onClick={() => handleDecrement(name)}>
               <div className="minus-icon" />
@@ -97,6 +92,11 @@ const App = () => {
             <div className="incrementer" onClick={() => handleIncrement(name)}>
               +
             </div>
+          </div>
+          <div className="cards">
+            {counterCardImages[name].map((cardImage, index) => (
+              <img key={index} src={cardImage} alt={`${counterDisplayNames[name]} card art`} />
+            ))}
           </div>
         </div>
       ))}
