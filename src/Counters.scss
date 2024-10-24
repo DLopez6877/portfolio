@@ -1,20 +1,46 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 $indicator-size: 40px;
+
+.life-counter {
+  display: flex;
+}
+
+.drawer-row {
+  display: flex;
+}
+
+.drawer-item {
+  background-color: white;
+  margin-bottom: 5px;
+  height: 25px;
+  overflow: hidden;
+  button {
+    z-index: 1;
+    border: none;
+    display: flex;
+    font-size: 16px;
+  }
+  img {
+    width: 80%;
+    transform: translate(-105px, -10px);
+    z-index: 0;
+  }
+}
 
 .counters-container {
   position: relative;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: white;
   align-self: center;
 
   .row {
     display: flex;
-    background-color: white;
     align-items: center;
     flex: 1;
     width: 100%;
@@ -30,10 +56,22 @@ $indicator-size: 40px;
     display: flex;
     flex-shrink: 1;
   }
-  img {
-    height: 100%;
-    width: 70px;
-    margin-right: 5px;
+  .card-image {
+    max-height: calc(100vh / 8);
+    transform: translateX(-60px);
+    z-index: 1;
+    &:nth-child(2) {
+      transform: translateX(-120px);
+    }
+    &:nth-child(3) {
+      transform: translateX(-180px);
+    }
+    &:nth-child(4) {
+      transform: translateX(-240px);
+    }
+    &:nth-child(5) {
+      transform: translateX(-300px);
+    }
   }
 
   .row-name,
@@ -44,8 +82,16 @@ $indicator-size: 40px;
     font-size: 25px;
   }
 
+  .count-wrapper {
+    position: relative;
+  }
+
   .row-name {
-    font-size: calc($indicator-size / 1.5);
+    position: absolute;
+    top: 0;
+    left: 10%;
+    font-size: 14px;
+    text-align: center;
   }
 
   .counter {
@@ -53,30 +99,36 @@ $indicator-size: 40px;
     align-items: center;
   }
 
-  .incrementer {
-    width: $indicator-size;
-    height: $indicator-size;
-    border-radius: 50%;
-    background-color: rebeccapurple;
-    color: white;
-    text-align: center;
-    font-size: $indicator-size;
+  .incrementers {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
+    flex-direction: column;
 
-  .minus-icon {
-    background-color: white;
-    width: calc($indicator-size / 2);
-    height: 4px;
+    .incrementer {
+      width: $indicator-size;
+      height: $indicator-size;
+      border-radius: 50%;
+      background-color: rebeccapurple;
+      color: white;
+      text-align: center;
+      font-size: $indicator-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .minus-icon {
+      background-color: white;
+      width: calc($indicator-size / 2);
+      height: 4px;
+    }
   }
 
   .count-input {
     font-size: calc($indicator-size * 2);
     margin: 0 calc(calc($indicator-size / 4));
-    width: 100px;
+    width: 120px;
     padding: 5px;
     text-align: center;
     box-sizing: border-box;
