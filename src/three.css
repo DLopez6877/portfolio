@@ -1,0 +1,15 @@
+.three-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: all 2.3s ease, height 0.3s ease, top 0.3s ease;
+    pointer-events: none;
+}
+
+.shrink {
+    width: 300px;
+    height: 300px;
+    transform: translateY(700px);
+}

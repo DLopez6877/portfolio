@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+}
+
+$indicator-size: 50px;
+
+.counters-container {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+
+  .row {
+    display: flex;
+    background-color: white;
+    align-items: center;
+    flex: 1;
+    min-height: calc(100svh / 7);
+    max-width: 100svw;
+    overflow: hidden;
+    &:not(:last-child) {
+      border-bottom: 2px solid black;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    height: 100%;
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .row-name,
+  .counter {
+    position: relative;
+    padding: 0px 20px;
+    z-index: 1;
+    font-size: 30px;
+  }
+
+  .counter {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .incrementer {
+    width: $indicator-size;
+    height: $indicator-size;
+    border-radius: 50%;
+    background-color: rebeccapurple;
+    color: white;
+    text-align: center;
+    font-size: $indicator-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .minus-icon {
+    background-color: white;
+    width: calc($indicator-size / 2);
+    height: 4px;
+  }
+
+  .count {
+    font-size: 90px;
+    margin: 0 30px;
+  }
+}
